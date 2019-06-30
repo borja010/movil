@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Creditos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label>Cliente: </ion-label>
+      <ionic-selectable [items]="clientes" itemTextField="nombres" [canSearch]="true" (onChange)="onChange($event)">
+      </ionic-selectable>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tipo de transacción: </ion-label>
+      <ion-select placeholder="Seleccione una" formControlName="tipo_transaccion">
+        <ion-select-option value="c">Credito</ion-select-option>
+        <ion-select-option value="p">Pago</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Monto: </ion-label>
+      <ion-input type="number" formControlName="monto"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Descripción: </ion-label>
+      <ion-textarea formControlName="descripcion"></ion-textarea>
+    </ion-item>
+  </form>
+  <ion-button expand="block" (click)="guardar()" [disabled]="form.invalid">Guardar credito</ion-button>
+</ion-content>

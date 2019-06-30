@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label>Usuario: </ion-label>
+      <ion-input type="text" formControlName="usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Contraseña: </ion-label>
+      <ion-input type="password" formControlName="contrasena"></ion-input>
+    </ion-item>
+  </form>
+  <ion-button expand="block" (click)="login()" [disabled]="form.invalid">Login</ion-button>
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Entradas y Salidas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label>Empleado: </ion-label>
+      <ionic-selectable [items]="empleados" itemTextField="nombres" [canSearch]="true" (onChange)="onChange($event)">
+      </ionic-selectable>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tipo de transacción: </ion-label>
+      <ion-select placeholder="Seleccione una" formControlName="tipo_transaccion">
+        <ion-select-option value="e">Entrada</ion-select-option>
+        <ion-select-option value="s">Salida</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </form>
+  <ion-button expand="block" (click)="marcar()" [disabled]="form.invalid">Marcar</ion-button>
+</ion-content>

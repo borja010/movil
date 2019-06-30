@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Digital</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label>Bomba/Manguera: </ion-label>
+      <ion-select placeholder="Bomba/Manguera" formControlName="bomba_manguera">
+        <ion-select-option *ngFor="let bomba of totalBombas" [value]="bomba">{{bomba}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tipo combustible: </ion-label>
+      <ion-select placeholder="Tipo combustible" formControlName="tipo_combustible">
+        <ion-select-option *ngFor="let tipo of tipoCombustible" [value]="tipo.valor">{{tipo.descripcion}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Galones: </ion-label>
+      <ion-input type="number" formControlName="galones"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Monetario: </ion-label>
+      <ion-input type="number" formControlName="monetario"></ion-input>
+    </ion-item>
+  </form>
+  <ion-button expand="block" (click)="guardar()" [disabled]="form.invalid">Guardar digital</ion-button>
+</ion-content>
