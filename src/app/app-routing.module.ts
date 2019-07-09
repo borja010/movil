@@ -3,8 +3,26 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent},
-  { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' }
+  {
+    path: '',
+    component: LoginComponent
+  },
+  {
+    path: 'entrada-salida',
+    loadChildren: './entrada-salida/entrada-salida.module#EntradaSalidaPageModule'
+  },
+  {
+    path: 'digital',
+    loadChildren: './digital/digital.module#DigitalPageModule'
+  },
+  {
+    path: 'analoga',
+    loadChildren: './analoga/analoga.module#AnalogaPageModule'
+  },
+  {
+    path: 'vale',
+    loadChildren: './vale/vale.module#ValePageModule'
+  }
 ];
 @NgModule({
   imports: [
@@ -12,4 +30,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

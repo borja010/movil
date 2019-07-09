@@ -10,35 +10,35 @@ export class AppService{
     constructor(private http: HttpClient) {}
 
     obtenerClientes(){
-        return this.http.post(this.urlServidor + '/api/movil/obtenerClientes/', {});
+        return this.http.post(this.urlServidor + '/api/movil/obtenerClientes/', {}, { headers: { authorization: 'Bearer ' + localStorage.token } });
     }
 
     obtenerEmpleados(){
-        return this.http.post(this.urlServidor + '/api/movil/obtenerEmpleados/', {});
+        return this.http.post(this.urlServidor + '/api/movil/obtenerEmpleados/', {}, { headers: { authorization: 'Bearer ' + localStorage.token } });
     }
 
     insertarEntradaSalida(parametros){
-        return this.http.post(this.urlServidor + '/api/movil/insertarEntradaSalida/', parametros);
+        return this.http.post(this.urlServidor + '/api/movil/insertarEntradaSalida/', parametros, { headers: { authorization: 'Bearer ' + localStorage.token } });
     }
 
     insertarCredito(parametros){
-        return this.http.post(this.urlServidor + '/api/movil/insertarCredito/', parametros);
+        return this.http.post(this.urlServidor + '/api/movil/insertarCredito/', parametros, { headers: { authorization: 'Bearer ' + localStorage.token } });
     }
 
     insertarDigital(parametros){
-        return this.http.post(this.urlServidor + '/api/movil/insertarDigital/', parametros);
+        return this.http.post(this.urlServidor + '/api/movil/insertarDigital/', parametros, { headers: { authorization: 'Bearer ' + localStorage.token } });
     }
 
     insertarAnaloga(parametros){
-        return this.http.post(this.urlServidor + '/api/movil/insertarAnaloga/', parametros);
+        return this.http.post(this.urlServidor + '/api/movil/insertarAnaloga/', parametros, { headers: { authorization: 'Bearer ' + localStorage.token } });
     }
 
-    obtenerTipoCombustible(){
-        return this.http.post(this.urlServidor + '/api/obtenerTipoCombustible/', {});
+    obtenerMangueras(){
+        return this.http.post(this.urlServidor + '/api/frontend/obtenerMangueras/', {}, { headers: { authorization: 'Bearer ' + localStorage.token } });
     }
 
-    obtenerTotalBombaManguera(){
-        return this.http.post(this.urlServidor + '/api/obtenerTotalBombaManguera/', {});
+    login(parametros) {
+        return this.http.post(this.urlServidor + "/login/", parametros);
     }
 
 }
